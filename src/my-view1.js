@@ -10,6 +10,7 @@
 
 import { PolymerElement, html } from '@polymer/polymer/polymer-element.js';
 import './shared-styles.js';
+import '@polymer/iron-image/iron-image.js';
 
 class MyView1 extends PolymerElement {
   static get template() {
@@ -20,10 +21,14 @@ class MyView1 extends PolymerElement {
 
           padding: 10px;
         }
+        iron-image {
+          width: 300px;
+          height: 300px;
+        }
       </style>
 
       <div class="card">
-        <div class="circle">1</div>
+        <iron-image sizing="contain" alt="image for challenge" src="https://d1re4mvb3lawey.cloudfront.net/pg1017/cover.jpg"></iron-image>
         <h1>View One</h1>
         <p>Ut labores minimum atomorum pro. Laudem tibique ut has.</p>
         <p>Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Cu mei vide viris gloriatur, at populo eripuit sit.</p>
