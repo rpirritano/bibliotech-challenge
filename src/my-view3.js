@@ -10,6 +10,8 @@
 
 import { PolymerElement, html } from '@polymer/polymer/polymer-element.js';
 import './shared-styles.js';
+import '@polymer/iron-list/iron-list.js';
+
 
 class MyView3 extends PolymerElement {
   static get template() {
@@ -22,12 +24,15 @@ class MyView3 extends PolymerElement {
         }
       </style>
 
-      <div class="card">
-        <div class="circle">3</div>
-        <h1>View Three</h1>
-        <p>Modus commodo minimum eum te, vero utinam assueverit per eu.</p>
-        <p>Ea duis bonorum nec, falli paulo aliquid ei eum.Has at minim mucius aliquam, est id tempor laoreet.Pro saepe pertinax ei, ad pri animal labores suscipiantur.</p>
-      </div>
+
+      <iron-ajax url="src/data/toc.json" last-response="{{data}}" auto></iron-ajax>
+      <iron-list items="[[data]]" as="item">
+        <template>
+          <div>
+            Name: [[item.name]]
+          </div>
+        </template>
+      </iron-list>
     `;
   }
 }

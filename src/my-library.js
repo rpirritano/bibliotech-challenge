@@ -11,8 +11,9 @@
 import { PolymerElement, html } from '@polymer/polymer/polymer-element.js';
 import './shared-styles.js';
 import '@polymer/iron-image/iron-image.js';
+import '@polymer/iron-ajax/iron-ajax.js';
 
-class MyView1 extends PolymerElement {
+class MyLibrary extends PolymerElement {
   static get template() {
     return html`
       <style include="shared-styles">
@@ -27,14 +28,30 @@ class MyView1 extends PolymerElement {
         }
       </style>
 
+      <iron-ajax
+        auto
+        url="https://d1re4mvb3lawey.cloudfront.net/pg1017/index.json"
+        handle-as="json"
+        last-response="{{response}}">
+      </iron-ajax>
+
+
+
       <div class="card">
         <iron-image sizing="contain" alt="image for challenge" src="https://d1re4mvb3lawey.cloudfront.net/pg1017/cover.jpg"></iron-image>
         <h1>View One</h1>
-        <p>Ut labores minimum atomorum pro. Laudem tibique ut has.</p>
-        <p>Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Cu mei vide viris gloriatur, at populo eripuit sit.</p>
+        <span>{{response.title}}</span>
+        <span>{{response.contributors}}</span>
+        <p>Published: </p>
+        <span>{{response.isbn}}</span>
+        <span>{{response.date}}</span>
+        <template is="dom-repeat" items="{{response.toc}}" as="toc">
+                <div>{{toc.file}}</div>
+
+              </template>
       </div>
     `;
   }
 }
 
-window.customElements.define('my-view1', MyView1);
+window.customElements.define('my-library', MyLibrary);
