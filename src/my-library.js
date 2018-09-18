@@ -39,17 +39,17 @@ class MyLibrary extends PolymerElement {
 
       <div class="card">
         <iron-image sizing="contain" alt="image for challenge" src="https://d1re4mvb3lawey.cloudfront.net/pg1017/cover.jpg"></iron-image>
-        <h1>View One</h1>
+      </br>
         <span>{{response.title}}</span>
         <span>{{response.contributors}}</span>
         <p>Published: </p>
-        <span>{{response.isbn}}</span>
-        <span>{{response.date}}</span>
-        <template is="dom-repeat" items="{{response.toc}}" as="toc">
-                <div>{{toc.file}}</div>
-
-              </template>
-      </div>
+          <span>ISBN: {{response.isbn}}</span>
+        </br>
+          <span> Date: {{response.date}}</span>
+            <template is="dom-repeat" items="{{response.toc}}" as="toc">
+              <div>{{toc.file}}</div>
+            </template>
+        </div>
     `;
   }
 }

@@ -41,9 +41,15 @@ class MyContents extends PolymerElement {
         }
       </style>
 
+      <iron-ajax
+        auto
+        url="https://d1re4mvb3lawey.cloudfront.net/pg1017/index.json"
+        handle-as="json"
+        last-response="{{response}}">
+      </iron-ajax>
+
       <div class="card">
-        <div class="circle">3</div>
-        <h1>View Three</h1>
+        <h2>{{response.title}}</h2>
         <div id="toc_container">
           <p class="toc_title">Contents</p>
           <ul class="toc_list">

@@ -21,6 +21,8 @@ import '@polymer/app-route/app-route.js';
 import '@polymer/iron-pages/iron-pages.js';
 import '@polymer/iron-selector/iron-selector.js';
 import '@polymer/paper-icon-button/paper-icon-button.js';
+import '@polymer/iron-icon/iron-icon.js';
+import '@polymer/iron-icons/iron-icons.js';
 import './my-icons.js';
 
 // Gesture events like tap and track generated from touch will not be
@@ -48,7 +50,7 @@ class MyApp extends PolymerElement {
 
         app-header {
           color: #fff;
-          background-color: var(--app-primary-color);
+          background-color: #C0C0C0;
         }
 
         app-header paper-icon-button {
@@ -81,9 +83,9 @@ class MyApp extends PolymerElement {
 
       <app-drawer-layout fullbleed="" narrow="{{narrow}}">
         <!-- Drawer content -->
-        <app-drawer id="drawer" slot="drawer" swipe-open="[[narrow]]">
+        <app-drawer id="drawer" slot="drawer" swipe-open="[[narrow]]" align="right">
           <app-toolbar>Menu</app-toolbar>
-          <iron-selector selected="[[page]]" attr-for-selected="name" class="drawer-list" role="navigation">
+          <iron-selector selected="[[page]]" attr-for-selected="name" class="drawer-list" role="navigation" align="left">
             <a name="my-library" href="[[rootPath]]my-library"> My Library</a>
             <a name="my-contents" href="[[rootPath]]my-contents">Table of Contents</a>
             <a name="view3" href="[[rootPath]]view3">View Three</a>
@@ -96,7 +98,7 @@ class MyApp extends PolymerElement {
           <app-header slot="header" condenses="" reveals="" effects="waterfall">
             <app-toolbar>
               <paper-icon-button icon="my-icons:menu" drawer-toggle=""></paper-icon-button>
-              <div main-title="">My App</div>
+              <div main-title="">My Library</div>
             </app-toolbar>
           </app-header>
 
